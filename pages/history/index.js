@@ -1,12 +1,18 @@
 import styles from "./history.module.css";
 import Header from "/components/Header";
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 const imagesApi = "https://image.tmdb.org/t/p/w500/"
 
 export default function History() {
 
-    const history = JSON.parse(localStorage.getItem("history"))
+    const [history, setHistory] = useState([])
+
+    useEffect(() => {
+        setHistory(JSON.parse(localStorage.getItem("history")) === null ? [] : JSON.parse(localStorage.getItem("history")))
+    }, [])
+
     return (
         <>
             <Header />

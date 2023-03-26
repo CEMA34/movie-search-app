@@ -1,18 +1,23 @@
 import styles from "./watchList.module.css";
 import Header from "/components/Header";
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 const imagesApi = "https://image.tmdb.org/t/p/w500/"
 
 export default function WatchList() {
 
-  const favorites = JSON.parse(localStorage.getItem("favorites"))
+  const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    setFavorites(JSON.parse(localStorage.getItem("favorites")) === null ? [] : JSON.parse(localStorage.getItem("favorites")))
+  }, [])
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-        {favorites && favorites.map((movie,index) => {
+        {favorites && favorites.map((movie, index) => {
           return (
             <motion.div
               initial={{ opacity: 0 }}
