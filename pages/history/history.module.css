@@ -1,0 +1,29 @@
+.container {
+    max-width: 1024px;
+    margin-inline: auto;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 1em;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.main {
+    width: 300px;
+    margin-top: 70px;
+    height: 750px;
+}
+
+.main__movieTitle {
+    font-weight: 500;
+}
+
+.main__moviePoster {
+    border-radius: 10px;
+}
+
+.main__movieDescription {
+    height: 100px;
+    font-size: 14px;
+    line-height: 20px;
+}
